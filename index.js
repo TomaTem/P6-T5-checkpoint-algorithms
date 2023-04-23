@@ -12,6 +12,7 @@ function crawlTree(arr) {
 }
 
 // Код для второго задания напиши в этой функции
+// без рекурсии
 function twoSum(arr, target) {
     let result = [];
     for (let i = 0; i < arr.length; i++) {
@@ -24,6 +25,19 @@ function twoSum(arr, target) {
     }
 }
 
+// с рекурсией
+function twoSumRec(arr, target, i = 0) {
+    let result = [];
+    a = target - arr[i];
+    j = arr.lastIndexOf(a);
+    if (arr.includes(a) && i != j) {
+        result.push(i, j);
+        return result;
+    } else {
+        return twoSum(arr, target, i + 1);
+    }
+}
+
 // Всё, что ниже, нужно для тестов. Не изменяй этот код
-const functions = {crawlTree, twoSum};
+const functions = {crawlTree, twoSum, twoSumRec};
 module.exports = functions;

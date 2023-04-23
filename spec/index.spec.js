@@ -2,7 +2,7 @@ const functions = require("../index");
 
 describe("Чекпоинт Algorithms", () => {
   const mock = jest.spyOn(functions, "crawlTree");
-  const { crawlTree, twoSum } = functions;
+  const { crawlTree, twoSum, twoSumRec } = functions;
 
   describe("Проход по дереву", () => {
     /**
@@ -54,18 +54,21 @@ describe("Чекпоинт Algorithms", () => {
       const arr = [3, 2, 4];
       const target = 6;
       expect(twoSum(arr, target)).toEqual([1, 2]);
+      expect(twoSumRec(arr, target)).toEqual([1, 2]);
     });
 
     it("отрабатывает для второго случая", () => {
       const arr = [2, 7, 11, 15];
       const target = 9;
       expect(twoSum(arr, target)).toEqual([0, 1]);
+      expect(twoSumRec(arr, target)).toEqual([0, 1]);
     });
 
     it("отрабатывает для третьего случая", () => {
       const arr = [3, 3];
       const target = 6;
       expect(twoSum(arr, target)).toEqual([0, 1]);
+      expect(twoSumRec(arr, target)).toEqual([0, 1]);
     });
 
     xit("использует хэш-таблицу для более эффективного решения", () => {
