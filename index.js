@@ -22,7 +22,7 @@ function twoSum(arr, target) {
             result.push(i, j);
             return result;
         }
-    }
+    } return result
 }
 
 // с рекурсией
@@ -33,8 +33,10 @@ function twoSumRec(arr, target, i = 0) {
     if (arr.includes(a) && i != j) {
         result.push(i, j);
         return result;
+    } else if (i < arr.length -1) {
+        return twoSum(arr, target, i+1);
     } else {
-        return twoSum(arr, target, i + 1);
+        return result
     }
 }
 
